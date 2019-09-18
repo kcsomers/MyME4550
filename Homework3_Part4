@@ -1,0 +1,28 @@
+*  Kasey Somers
+ *  ME 4550
+ *  Homework 3
+ *  Part 4
+ *  September 18th, 2019
+ */
+
+#define pushButton  2 /* Removed semi colon and equal sign*/   
+#define LED_OUTPUT 13 /* Removed semi colon and equal sign*/
+void setup() 
+{
+  Serial.begin(9600); /* Setup was changed to begin - Opens serial port*/
+  pinMode(pushButton, INPUT);
+  pinMode(LED_OUTPUT, OUTPUT);  
+  digitalWrite(LED_OUTPUT,LOW); /* Added semi colon, changed 0 to low. */
+}
+void loop() 
+{
+  static int buttonState = digitalRead(pushButton); /* Removed parenthesis.  Fixed digitalRead format*/
+  Serial.println(buttonState); /* Print line was changed to println*/
+  if(buttonState == 1) {  /* Added extra equal sign and added curly brackets*/
+    digitalWrite(LED_OUTPUT, HIGH); /* Changed digitalWriteLED to digital write. Corrected digitalWrite format*/
+  }
+  else{
+    digitalWrite(LED_OUTPUT, LOW);  /* Zero was changed to 0.  Corrected digitalWrite format*/
+  }
+  delay(100.5);  /* Removed parenthesis*/
+}
